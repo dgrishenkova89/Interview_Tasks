@@ -1,0 +1,8 @@
+C:\Users\d.kaydashova\source\repos\FiguresLibrary\FiguresLibrary\obj\Debug\netcoreapp3.1\FiguresLibrary.csprojAssemblyReference.cache
+C:\Users\d.kaydashova\source\repos\FiguresLibrary\FiguresLibrary\obj\Debug\netcoreapp3.1\FiguresLibrary.AssemblyInfoInputs.cache
+C:\Users\d.kaydashova\source\repos\FiguresLibrary\FiguresLibrary\obj\Debug\netcoreapp3.1\FiguresLibrary.AssemblyInfo.cs
+C:\Users\d.kaydashova\source\repos\FiguresLibrary\FiguresLibrary\bin\Debug\netcoreapp3.1\FiguresLibrary.deps.json
+C:\Users\d.kaydashova\source\repos\FiguresLibrary\FiguresLibrary\bin\Debug\netcoreapp3.1\FiguresLibrary.dll
+C:\Users\d.kaydashova\source\repos\FiguresLibrary\FiguresLibrary\bin\Debug\netcoreapp3.1\FiguresLibrary.pdb
+C:\Users\d.kaydashova\source\repos\FiguresLibrary\FiguresLibrary\obj\Debug\netcoreapp3.1\FiguresLibrary.dll
+C:\Users\d.kaydashova\source\repos\FiguresLibrary\FiguresLibrary\obj\Debug\netcoreapp3.1\FiguresLibrary.pdb
