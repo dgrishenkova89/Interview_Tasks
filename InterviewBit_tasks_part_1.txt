@@ -1,3 +1,34 @@
+// AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBB -> A4B3C2XYZD4E3F3A6B28
+// Calculate chars count and write it in string
+
+public string CalcCharCount(string sourceStr)
+{
+    if (string.IsNullOrEmpty(sourceStr))
+    {
+        return;
+    }
+    
+    var builder = new StringBuilder();
+    var counter = 0;
+    var size = sourceStr.Length - 1;
+    for(int i = 0; i < size; i++)
+    {
+        if (sourceStr[i] == sorceStr[i + 1])
+        {
+            counter++;
+        }
+        else
+        {
+            builder.Append($"{sourceStr[i]}{(counter == 0 ? string.Empty : counter)}");
+            counter = 0;
+        }
+    }
+    
+    builder.Append($"{sourceStr[size]}{(counter == 0 ? string.Empty : counter)}");
+    
+    return builder.ToString();
+}
+
 --- Return tree nodes
 static IEnumerable<TreeNode> GetAllNodes(TreeNode node)
 {
