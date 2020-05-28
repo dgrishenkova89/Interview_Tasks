@@ -1,3 +1,19 @@
+--- Return tree nodes
+static IEnumerable<TreeNode> GetAllNodes(TreeNode node)
+{
+	foreach (TreeNode childNode in node.Children)
+	{
+		yield return childNode;
+		foreach (TreeNode root in GetAllNodes(childNode))
+		{
+			yield return root;
+		}
+	}
+	
+}
+		
+i, m, j, d, e, n, k, f, b, g, l, h, c, a
+
 --- Min Steps in Infinite Grid
 
 class Solution {
