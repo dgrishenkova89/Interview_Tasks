@@ -1,0 +1,205 @@
+--- Min Steps in Infinite Grid
+
+class Solution {
+    public int coverPoints(List<int> A, List<int> B) {
+        if (A.Count != B.Count) return 0;
+        
+        var size = A.Count - 1;
+        var steps = 0;
+        for(int i = 0; i < size; i++)
+        {
+            var dx = Math.Abs(A[i] - A[i + 1]);
+            var dy = Math.Abs(B[i] - B[i + 1]);
+            steps += Math.Max(dx, dy);
+        }
+        
+        return steps;
+    }
+}
+
+
+
+vector<int> Solution::maxset(vector<int> &A) {
+    int n=A.size();
+    int i=0,maxm=0,count=0,start=0,end=-1;
+    int fstart=-1,fend=-1;
+    long long int sum=0,maxsum=0;
+    vector<int> res;
+    while(i<n){
+        if(A[i]>=0){
+            sum+=A[i];
+            count++;
+            end++;
+        }
+        if(sum>maxsum){
+            maxsum=sum;
+            fstart=start;
+            fend=end;
+        }
+        else if(sum==maxsum&&count>maxm){
+            maxm=count;
+            fstart=start;
+            fend=end;
+        }
+        if(A[i]<0){
+            count=0;
+            start=i+1;end=i;
+            sum=0;
+        }
+        i++;
+    }
+    if(fstart!=-1&&fend!=-1){
+        for(int i=fstart;i<=fend;i++)
+         res.push_back(A[i]);
+    }
+    return res;
+}
+
+--- Add One To Number
+
+class Solution {
+    public List<int> plusOne(List<int> A) {
+            int n = A.Count - 1; 
+  
+            A[n] += 1;
+            var carry = A[n] / 10;
+            A[n] = A[n] % 10;
+  
+            for(int i = n - 1; i >= 0; i--) 
+            { 
+                if(carry == 1) 
+                { 
+                    A[i] += 1; 
+                    carry = A[i] / 10; 
+                    A[i] = A[i] % 10; 
+                } 
+            }
+            
+            if (carry == 1)
+            {
+                A.Add(0);
+                A[0] = carry;
+            }
+            
+            var indexList = new List<int>();
+            for(int i = 0; i <= n; i++)
+            {
+                if (A[i] > 0)
+                {
+                    break;
+                }
+                indexList.Add(i);
+                
+            }
+            
+            A.RemoveRange(0, indexList.Count);
+            
+            return A;
+    }
+}
+
+
+--- Max Sum Contiguous Subarray
+class Solution {
+    public int maxSubArray(List<int> A) {
+        if (A.Count == 0) return 0;
+        
+        var sum = new List<int> { A[0] };
+        
+        var size = A.Count - 1;
+        for(int i = 1; i <= size; i++)
+        {
+            sum.Add(A[i] <= (A[i] + sum[i - 1])
+                        ? (sum[i - 1] + A[i])
+                        : A[i]);
+        }
+        
+        return sum.Max();
+    }
+}
+
+--- MAXSPPROD
+#include <algorithm>
+#include <vector>
+#include <stack>
+#include <iostream>
+
+int next_bigger(std::vector<int>& v, std::stack<int>& stack, int i){
+    while(!stack.empty()){
+        int j = stack.top();
+        if (v[j] <= v[i]){
+            stack.pop();
+        }
+        else{
+            stack.push(i);
+            return j;
+        }
+    }
+    stack.push(i);
+    return 0;
+}
+
+void right( std::vector<int> &v, std::vector<int> &r){
+    std::stack<int> stack;
+
+    for(int i = v.size() - 1; i >= 0; --i){
+        r[i] = next_bigger(v, stack, i);
+        stack.push(i);
+    }
+}
+
+int Solution::maxSpecialProduct(vector<int> &v) {
+    std::vector<int> r(v.size());
+    right(v, r);
+    
+    long long int mp = 0;
+    std::stack<int> stack;
+    for (int i = 0; i < v.size(); ++i)
+    {
+        long long int j = next_bigger(v, stack, i);
+        long long int mp_i = j * r[i];
+        if (mp < mp_i)
+        {
+            mp = mp_i;
+        }
+    }
+    return mp % 1000000007;
+}
+
+int mult_mod(int i, int j) {
+    return ((i%1000000007) * (j%1000000007)) % 1000000007;
+}
+
+--- Noble Integer
+class Solution {
+    public int solve(List<int> A) {
+        if (A.Count == 0) return 0;
+        
+        A.Sort();
+        A.Reverse();
+        
+        var greater = 0;
+        var equals = 0;
+        if (A[0] == greater) return 1;
+        
+        for(int i = 1; i < A.Count; i++)
+        {
+            if (A[i - 1] > A[i])
+            {
+                greater++;
+                greater = greater + equals;
+                equals = 0;
+            }
+            else if (A[i - 1] == A[i])
+            {
+                equals++;
+            }
+            
+            if (A[i] == greater) return 1;
+        }
+        
+        return -1;
+    }
+}
+
+
